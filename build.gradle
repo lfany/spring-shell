@@ -13,6 +13,7 @@ group = 'org.springframework.shell'
 
 repositories {
   mavenCentral()
+    maven { url "http://maven.aliyun.com/nexus/content/repositories/central" }
   maven { url "http://repo.springsource.org/libs-snapshot" }
   maven { url "http://repo.springsource.org/plugins-release" }
 }
@@ -21,7 +22,7 @@ apply plugin: "java"
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply from: "$rootDir/maven.gradle"
-apply plugin: 'docbook-reference'
+//apply plugin: 'docbook-reference'
 apply plugin: 'application'
 
 if (project.hasProperty('platformVersion')) {
@@ -112,9 +113,9 @@ task javadocJar(type: Jar) {
     from javadoc
 }
 
-reference {
+/*reference {
     sourceDir = file('docs/src/reference/docbook')
-}
+}*/
 
 
 task docsZip(type: Zip) {
@@ -130,9 +131,9 @@ task docsZip(type: Zip) {
         into 'api'
     }
 
-    from (reference) {
+    /*from (reference) {
         into 'reference'
-    }
+    }*/
 }
 
 task schemaZip(type: Zip) {
